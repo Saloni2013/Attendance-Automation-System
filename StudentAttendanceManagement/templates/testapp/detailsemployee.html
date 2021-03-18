@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% load static %}
+{% block main_block %}
+  <link rel="stylesheet" href="{% static 'css/dashboardstyle1.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+  <style>
+      @media (max-width: 1000px) {
+          table {
+            display: block;
+            overflow-x: scroll;
+          }
+      }
+  </style>
+{% endblock %}
+{% block child_block %}
+    <h3 style="background-color: #BE5869;padding: 7px 100px;" class="text-white">Student List</h3>
+    <div class="container-fluid" style="margin-top: 40px;margin-bottom: 40px;">
+        <div class="row">
+            <div class="col">
+              {% if emp_list %}
+                <table id="example" class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Student Name</th>
+                        <th>Sem</th>
+					            	<th>Branch</th>
+                        <th>Gender</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        
+                        <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for employee in emp_list %}
+                  <tr>
+                    <td>{{counter.count}}</td>{{counter.increment}}
+                    <td>{{employee.first_name}}{{' '}}{{employee.last_name}}</td>
+                    <td>{{employee.salary}}</td>
+					<td>{{employee.branch}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.city}}</td>
+                    
+                    <td><a href="/updateemployee/{{employee.eid}}">Update</a><a href="/deleteemployee/{{employee.eid}}" class="ml-2">Delete</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                </table>
+              {% else %}
+                <p>No Employee Available</p>
+              {% endif %}
+            </div>
+            </div>
+          </div>
+
+  {% block action_block %}
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+    } );
+    </script>
+  {% endblock %}
+{% endblock %}

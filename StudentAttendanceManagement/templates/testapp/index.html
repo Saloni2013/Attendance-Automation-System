@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% load static %}
+{% block main_block %}
+  <link rel="stylesheet" href="{% static 'css/main1.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
+
+{% endblock %}
+{% block child_block %}
+<div class="container-fluid" id="banner">
+    <div class="container">
+        <div class="row">
+                <div class="col-md-8  mx-auto" style="max-width: 500px;">
+                    <h2>Student Attendance Management</h2>
+                        <p>This application is used to store and manage the attendance of Student!</p>
+                        <a href="#knowmore">know more</a>
+                </div>
+                <div class="col-md-4">
+                  <img src="{% static 'images\AttendanceMattersWordmark_English_-1.png' %}" alt="" style="width: 240px;height:210px;background-color:white;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+    <div class="container-fluid wrapper">
+        <div class="row">
+                <div class="col-md-8 mx-md-auto" id="knowmore">
+                    <h2 class="text-center">Student Attendance Management</h2>
+                    <img src="{% static 'images/Employee-Time-Punch-Clock.jpg' %}" alt="">
+                    <p>Attendance System forms the lifeline of the schools and institutes to manage the student attendance and its grades. It is very essential for an Institute to handle the grades and their scale. It is very useful for an Institute to test its student attendance continuously for their grade development.
+
+The IT initiatives have encouraged various Organizations to develop systems to facilitate their day to day operations. The Attendance System will include various parts (Grades, Student Entry, Student Exit etc) for conducting marks sheet. This system helps in conducting Attendance quickly and can thus help in saving time and the operations will be carried out efficiently.
+
+With the effective use, any Institute can apply the “Attendance Management System” for conducting quick attendance and getting better results in less time.
+
+</p>
+                </div>
+            </div>
+    </div>
+
+{% endblock %}
